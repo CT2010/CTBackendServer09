@@ -1,0 +1,4 @@
+1. Khởi tạo dự án
+    npm init : tạo file package-lock.json
+2. Cài đặt express và mongoose
+    npm i express --save

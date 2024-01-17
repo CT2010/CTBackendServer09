@@ -1,0 +1,20 @@
+{
+  "name": "backendserver",
+  "version": "1.2.3",
+  "description": "NodeJs Server",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "CT2010",
+  "license": "ISC"
+}
