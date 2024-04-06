@@ -2,3 +2,8 @@
     npm init : tạo file package-lock.json
 2. Cài đặt express và mongoose
     npm i express --save
+
+@@@ Các thư viện đã cài đặt:
+    npm install csv-parser
+    npm install csvtojson
+    npm install multer  : xử lý file upload đăng lý hàng loạt location
