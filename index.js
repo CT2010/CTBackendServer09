@@ -8,11 +8,14 @@ const routes = require('./routes/accountRoutes'); // Nhập khẩu các tuyến 
  
 const visRoutes = require('./routes/visdataRoutes'); // Nhập khẩu các tuyến đường cho phần dữ liệu trực quan
 
+const path = require('path');
+
 dotenv.config(); // Tải các biến môi trường từ file .env
 
 const app = express(); // Tạo một đối tượng ứng dụng Express
 const port = process.env.PORT; // Lấy cổng từ biến môi trường, nơi máy chủ sẽ lắng nghe
 const uri = process.env.MONGODB_URI; // Giả định chuỗi kết nối MongoDB Atlas được lưu trữ trong MONGODB_URI
+
 
 // Middleware
 app.use(cors()); // Sử dụng CORS như một middleware để cho phép các yêu cầu từ các nguồn khác nhau
@@ -27,10 +30,19 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     process.exit(1); // Thoát chương trình với mã lỗi 1
   });
 
-
+  // Thay 'ang18' bằng đường dẫn tuyệt đối tới thư mục build của Angular, nếu 'ang18' là tên thư mục chứa app Angular
+  app.use(express.static(path.join(__dirname, 'ang18/browser')));
+  
 // Sử dụng các tuyến đường
 app.use('/acc', routes); // Sử dụng các tuyến đường quản lý tài khoản tại đường dẫn /acc
 app.use('/vis', visRoutes); // Sử dụng các tuyến đường dữ liệu trực quan tại đường dẫn /vis
+
+
+// Định tuyến lại tất cả các yêu cầu không khớp với API routes tới Angular app
+// Đảm bảo rằng đường dẫn tới index.html chính xác
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'ang18', 'index.html')); // Sửa lại dòng này
+});
 
 // Bắt đầu máy chủ
 app.listen(port, () => {
