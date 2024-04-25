@@ -41,7 +41,7 @@ app.use('/vis', visRoutes); // Sử dụng các tuyến đường dữ liệu tr
 // Định tuyến lại tất cả các yêu cầu không khớp với API routes tới Angular app
 // Đảm bảo rằng đường dẫn tới index.html chính xác
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'ang18', 'index.html')); // Sửa lại dòng này
+  res.sendFile(path.resolve(__dirname, 'ang18/browser', 'index.html')); // Sửa lại dòng này
 });
 
 // Bắt đầu máy chủ
