@@ -48,3 +48,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`); // Thông báo trạng thái hoạt động của máy chủ trên cổng đã được chỉ định
 });
+ 
