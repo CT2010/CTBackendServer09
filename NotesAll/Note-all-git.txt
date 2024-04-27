@@ -21,3 +21,11 @@
 
 @@@ Theo dõi commit git của dự án:
 1. m1 : "begin" : 
+
+@@@ Các bước lưu và cập nhật
+1. Git add .
+2. git commit -m "....."
+3. git push
+
+@@@ Lấy dữ liệu về vps: 
+1. Git pull
